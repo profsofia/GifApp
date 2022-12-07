@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-gifpage',
-  templateUrl: './gifpage.component.html'
+  templateUrl: './gifpage.component.html',
 })
-export class GifpageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class GifpageComponent {
+  constructor() {}
 }

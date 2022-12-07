@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Gif, SearchGIFResponse } from '../interfaces/gifs_data.interface';
 
@@ -7,6 +7,7 @@ import { Gif, SearchGIFResponse } from '../interfaces/gifs_data.interface';
 })
 export class GifsService {
   public resultados: Gif[]=[];
+  private urlApi : string = 'https://api.giphy.com/v1/gifs';
   private apiKey : string = 'lUvx5DDAi0SdPQtljP33AtxhvqEhwFyH';
   private _historial: string[] =[];
   constructor(
@@ -14,6 +15,8 @@ export class GifsService {
   ) {
     //Esto lo hacemos ya que el constructor se ejecuta una vez que se llama al servicio, solo una vez
     this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    //imagenes
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
    }
 
   ////////////////////
@@ -31,13 +34,22 @@ export class GifsService {
 
 
     //Almacenamos los 10 primeros en el navegador
-    localStorage.setItem('historial', JSON.stringify(this._historial))
+    localStorage.setItem('historial', JSON.stringify(this._historial));
+    //las imágenes
+
   }
 
-  this.http.get<SearchGIFResponse>(`https://api.giphy.com/v1/gifs/search?api_key=lUvx5DDAi0SdPQtljP33AtxhvqEhwFyH&q=${query}&limit=10`)
+  //Refactorización de la url para que sea más fácil de mantener
+  const params = new HttpParams()
+  .set('api_key', 'lUvx5DDAi0SdPQtljP33AtxhvqEhwFyH')
+  .set('q', query)
+  .set('limit', '10');
+
+  this.http.get<SearchGIFResponse>(`${this.urlApi}/search?`, {params})
       .subscribe((resp) =>{
         this.resultados = resp.data;
-        console.log(resp.data);
+        //console.log(resp.data);
+        localStorage.setItem('resultados', JSON.stringify(this.resultados));
       });
 
 
