@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gifpage',
-  templateUrl: './gifpage.component.html',
-  styleUrls: ['./gifpage.component.css']
+  templateUrl: './gifpage.component.html'
 })
 export class GifpageComponent implements OnInit {
 

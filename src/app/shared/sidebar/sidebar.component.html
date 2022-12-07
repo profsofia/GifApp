@@ -4,9 +4,11 @@
   </h3>
   <hr class="text-light" >
   <div class="list-group list-reset">
+    <!--el pipe titlecase solo trasforma lo visual, el valor se sigue almacenando en minúscula-->
     <a
+    *ngFor="let gif of gifs"
     href="#"
     class="list-group-item list-group-item-action"
-    >Dashboard</a>
+    >{{gif | titlecase}}</a>
   </div>
 </div>
