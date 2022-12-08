@@ -1,9 +1,7 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div  id="sidebar" class="row row-cols-1 row-cols-md-1 row-cols-lg-3 g-4">
   <div class="col" *ngFor="let resultado of resultados; let i = index">
     <div class="card p-2">
       <img
-        width="150px"
-        height="250px"
         [ngStyle]="{'animation-delay': (i*1.5)+'s'}"
         [src]="resultado.images.downsized_medium.url"
         class="card-img-top animate__animated"

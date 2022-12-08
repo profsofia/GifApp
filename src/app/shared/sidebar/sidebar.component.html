@@ -1,5 +1,6 @@
-<div class="bg-dark border-right p-3" id="sidebar">
+<div class="p-3 bg-dark" id="sidebar" style="width: 280px;">
   <h3 class="text-light">Gifs App</h3>
+  <p class="font-weight-bold text-light">© 2022 Sofía Schenone. <br><span>Develop</span></p>
   <hr class="text-light" />
   <div class="list-group list-reset">
     <!--el pipe titlecase solo trasforma lo visual, el valor se sigue almacenando en minúscula-->
@@ -7,7 +8,7 @@
       (click)="buscar(gif)"
       *ngFor="let gif of gifs"
       href="#"
-      class="list-group-item list-group-item-action"
+      class="list-group-item list-group-item-action text-light bg-dark"
       >{{ gif | titlecase }}</a
     >
   </div>
