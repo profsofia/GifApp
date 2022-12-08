@@ -1,5 +1,7 @@
 # Gifapp
 
+![Gif App](https://github.com/profsofia/GifApp/blob/master/src/assets/gifapp.png)
+
 Este proyecto fué creado como práctica del curso de Cero a Experto (Udemy) Fernando Herrera.
 
 ## Modularizado
